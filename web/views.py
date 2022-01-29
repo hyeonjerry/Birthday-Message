@@ -9,7 +9,7 @@ def leave_message(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('web:leave_message')
+            return redirect('web:message_list')
     else:
         form = MessageForm()
     context = {'form': form}

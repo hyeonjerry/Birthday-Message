@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div id="fullpage">
+	<div class="section active masthead position-relative" id="section0" style="background-image: url({% static 'assets/img/card.jpg' %})">
+		<div class="position-absolute top-0 start-0 m-3">
+			<p class="meta" style="font-size: 4em;">LEAVE A<br />MESSAGE</p>
+		</div>
+		<div class="position-absolute bottom-0 start-0 m-5">
+			<p class="meta" style="font-size: 3em;">for Unknown</p>
+		</div>
+		<div class="position-absolute bottom-0 end-0 m-5">
+			<p class="meta" style="font-size: 2.2em;">Jan</p>
+			<p class="meta" style="font-size: 3em;">29</p>
+		</div>
+	</div>
+	<div class="section masthead" id="section1" style="background-image: url({% static 'assets/img/bg1.jpg' %})">
+		<form class="container" style="text-align: start;" method="post">
+			{% csrf_token %}
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" id="floatingInput" placeholder="익명의 너구리" value="{{ form.name.value|default_if_none:'' }}" name="name">
+				<label for="floatingInput">익명의 너구리</label>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message">{{ form.message.value|default_if_none:'' }}</textarea>
+				<label for="floatingTextarea2">Comments</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+	var myFullpage = new fullpage('#fullpage', {
+		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+	});
+</script>
+{% endblock %}

@@ -13,10 +13,10 @@ def leave_message(request):
     else:
         form = MessageForm()
     context = {'form': form}
-    return render(request, 'leave_message.html', context)
+    return render(request, 'web/leave_message.html', context)
 
 
 def message_list(request):
     messages = Message.objects.order_by('-create_date')
     context = {'messages': messages}
-    return render(request, 'message_list.html', context)
+    return render(request, 'web/message_list.html', context)

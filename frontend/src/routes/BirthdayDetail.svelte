@@ -45,7 +45,10 @@
 </script>
 
 <Fullpage>
-  <FullpageSection title="Svelte Fullpage">
+  <FullpageSection
+    class="bgimg"
+    style="background-image: url(src/assets/bg1.jpg); background-position: center center;"
+  >
     <div class="container text-center">
       <div class="row">
         <div class="col">
@@ -60,7 +63,10 @@
     </div>
   </FullpageSection>
 
-  <FullpageSection title="Features" class="bg-info">
+  <FullpageSection
+    class="bgimg"
+    style="background-image: url(src/assets/donut.jpg);"
+  >
     {#each birthday.messages as message}
       <FullpageSlide>
         <div class="container text-center">
@@ -77,7 +83,10 @@
     {/each}
   </FullpageSection>
 
-  <FullpageSection title="Future" class="bg-warning">
+  <FullpageSection
+    class="bgimg"
+    style="background-image: url(src/assets/card.jpg);"
+  >
     <div class="container text-center">
       <div class="row">
         <div class="col">
@@ -123,5 +132,9 @@
   }
   :global(#app) {
     height: 100%;
+  }
+  :global(.bgimg) {
+    background-position: center center;
+    background-size: cover;
   }
 </style>

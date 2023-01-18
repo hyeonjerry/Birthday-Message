@@ -4,7 +4,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 
 from models import Birthday, User
-from domain.birthday.birthday_schema import BirthdayCreate, BirthdayUpdate, BirthdayDelete
+from domain.birthday.birthday_schema import BirthdayCreate, BirthdayUpdate
 
 
 def get_birthday(db: Session, birthday_id: str):

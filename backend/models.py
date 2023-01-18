@@ -23,3 +23,11 @@ class Message(Base):
 
     birthday_id = Column(String, ForeignKey("birthday.id"))
     birthday = relationship("Birthday", backref="messages")
+
+
+class User(Base):
+    __tablename__ = "user"
+
+    id = Column(Integer, primary_key=True)
+    username = Column(String, unique=True, nullable=False)
+    password = Column(String, nullable=False)

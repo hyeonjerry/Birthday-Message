@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from starlette import status
 
 from database import get_db
-from models import Birthday
 from domain.birthday import birthday_schema, birthday_crud
 
 router = APIRouter(
@@ -15,6 +14,9 @@ router = APIRouter(
 @router.get("/detail/{birthday_id}", response_model=birthday_schema.Birthday)
 def birthday_detail(birthday_id: str, db: Session = Depends(get_db)):
     birthday = birthday_crud.get_birthday(db, birthday_id)
+    if not birthday:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail="데이터를 찾을 수 없습니다.")
     return birthday
 
 

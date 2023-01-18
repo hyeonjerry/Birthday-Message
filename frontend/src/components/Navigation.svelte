@@ -26,7 +26,7 @@
           <li class="nav-item">
             <a
               use:link
-              href="/user-login"
+              href="/"
               class="nav-link"
               on:click={() => {
                 $access_token = "";
@@ -37,10 +37,10 @@
           </li>
         {:else}
           <li class="nav-item">
-            <a use:link class="nav-link" href="/user-create">회원가입</a>
+            <a use:link class="nav-link" href="/user-login">로그인</a>
           </li>
           <li class="nav-item">
-            <a use:link class="nav-link" href="/user-login">로그인</a>
+            <a use:link class="nav-link" href="/user-create">회원가입</a>
           </li>
         {/if}
       </ul>

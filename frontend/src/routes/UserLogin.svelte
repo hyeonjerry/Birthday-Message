@@ -3,6 +3,7 @@
   import fastapi from "../lib/api";
   import Error from "../components/Error.svelte";
   import { access_token, username, is_login } from "../lib/store";
+  import Navigation from "../components/Navigation.svelte";
 
   let error = { detail: [] };
   let login_username = "";
@@ -23,7 +24,7 @@
         $access_token = json.access_token;
         $username = json.username;
         $is_login = true;
-        push("/");
+        push("/my-page");
       },
       (json_error) => {
         error = json_error;
@@ -31,6 +32,8 @@
     );
   }
 </script>
+
+<Navigation />
 
 <div class="container">
   <h5 class="my-3 border-bottom pb-2">로그인</h5>

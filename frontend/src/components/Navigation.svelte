@@ -24,6 +24,9 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {#if $is_login}
           <li class="nav-item">
+            <a use:link href="/my-page" class="nav-link">마이페이지</a>
+          </li>
+          <li class="nav-item">
             <a
               use:link
               href="/"

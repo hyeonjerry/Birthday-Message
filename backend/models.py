@@ -13,6 +13,9 @@ class Birthday(Base):
     introduce = Column(String, nullable=True)
     created_at = Column(DateTime, nullable=False)
 
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=True)
+    user = relationship("User", backref="birthdays")
+
 
 class Message(Base):
     __tablename__ = "message"

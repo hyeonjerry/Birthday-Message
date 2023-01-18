@@ -12,6 +12,14 @@ def get_birthday(db: Session, birthday_id: str):
     return birthday
 
 
+def get_birthday_list(db: Session, user: User, skip: int = 0, limit: int = 10):
+    birthday_list = db.query(Birthday).filter(Birthday.user_id == user.id)
+    total = birthday_list.distinct().count()
+    birthday_list = birthday_list.order_by(Birthday.created_at.desc())\
+        .offset(skip).limit(limit).distinct().all()
+    return total, birthday_list
+
+
 def create_birthday(db: Session, birthday_create: BirthdayCreate, user: User):
     def gen_id():
         while True:

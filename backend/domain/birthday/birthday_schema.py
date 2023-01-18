@@ -17,6 +17,11 @@ class Birthday(BaseModel):
         orm_mode = True
 
 
+class BirthdayList(BaseModel):
+    total: int = 0
+    birthday_list: list[Birthday] = []
+
+
 class BirthdayCreate(BaseModel):
     name: str
     bdate: datetime.date

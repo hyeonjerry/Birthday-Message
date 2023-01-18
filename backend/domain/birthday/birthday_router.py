@@ -13,6 +13,19 @@ router = APIRouter(
 )
 
 
+@router.get("/list", response_model=birthday_schema.BirthdayList)
+def birthday_list(db: Session = Depends(get_db),
+                  page: int = 0,
+                  size: int = 10,
+                  current_user: User = Depends(get_current_user)):
+    total, _birthday_list = birthday_crud.get_birthday_list(
+        db, current_user, skip=page*size, limit=size)
+    return {
+        'total': total,
+        'birthday_list': _birthday_list,
+    }
+
+
 @router.get("/detail/{birthday_id}", response_model=birthday_schema.Birthday)
 def birthday_detail(birthday_id: str, db: Session = Depends(get_db)):
     birthday = birthday_crud.get_birthday(db, birthday_id)

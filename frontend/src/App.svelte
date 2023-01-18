@@ -4,12 +4,14 @@
   import UserLogin from "./routes/UserLogin.svelte";
   import MyPage from "./routes/MyPage.svelte";
   import BirthdayDetail from "./routes/BirthdayDetail.svelte";
+  import BirthdayCreate from "./routes/BirthdayCreate.svelte";
 
   const routes = {
     "/": Home,
     "/user-login": UserLogin,
     "/my-page": MyPage,
     "/birthday-detail/:birthday_id": BirthdayDetail,
+    "/create-birthday": BirthdayCreate,
   };
 </script>
 

@@ -36,7 +36,8 @@
         <tr class="text-center">
           <td>{i}</td>
           <td class="text-center">
-            <a use:link href="/detail/{birthday.id}">{birthday.name}</a>
+            <a use:link href="/birthday-detail/{birthday.id}">{birthday.name}</a
+            >
             {#if birthday.messages.length > 0}
               <span class="text-danger small mx-2"
                 >{birthday.messages.length}</span

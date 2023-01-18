@@ -12,7 +12,7 @@ router = APIRouter(
 )
 
 
-@router.post("/create/{question_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.post("/create/{birthday_id}", status_code=status.HTTP_204_NO_CONTENT)
 def message_create(birthday_id: str,
                    _message_create: message_schema.MessageCreate,
                    db: Session = Depends(get_db)):

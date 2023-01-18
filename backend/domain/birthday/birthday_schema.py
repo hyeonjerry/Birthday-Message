@@ -23,3 +23,11 @@ class BirthdayCreate(BaseModel):
         if not v or type(v) == str and not v.strip():
             raise ValueError('빈 값은 허용되지 않습니다.')
         return v
+
+
+class BirthdayUpdate(BirthdayCreate):
+    id: str
+
+
+class BirthdayDelete(BaseModel):
+    id: str

@@ -4,7 +4,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 
 from models import Birthday
-from domain.birthday.birthday_schema import BirthdayCreate
+from domain.birthday.birthday_schema import BirthdayCreate, BirthdayUpdate, BirthdayDelete
 
 
 def get_birthday(db: Session, birthday_id: str):
@@ -26,4 +26,17 @@ def create_birthday(db: Session, birthday_create: BirthdayCreate):
                         introduce=birthday_create.introduce,
                         created_at=datetime.now())
     db.add(birthday)
+    db.commit()
+
+
+def update_birthday(db: Session, birthday: Birthday, birthday_update: BirthdayUpdate):
+    birthday.name = birthday_update.name
+    birthday.bdate = birthday_update.bdate
+    birthday.introduce = birthday_update.introduce
+    db.add(birthday)
+    db.commit()
+
+
+def delete_birthday(db: Session, birthday: Birthday):
+    db.delete(birthday)
     db.commit()

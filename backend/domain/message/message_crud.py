@@ -7,7 +7,8 @@ from domain.message.message_schema import MessageCreate
 
 
 def create_message(db: Session, birthday: Birthday, message_create: MessageCreate):
-    message = Message(message=message_create.message,
+    message = Message(name=message_create.name,
+                      message=message_create.message,
                       birthday=birthday,
                       created_at=datetime.now())
     db.add(message)

@@ -21,6 +21,7 @@ class Message(Base):
     __tablename__ = "message"
 
     id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
     message = Column(String, nullable=False)
     created_at = Column(DateTime, nullable=False)
 

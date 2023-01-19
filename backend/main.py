@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse
+from starlette.staticfiles import StaticFiles
 
 from domain.birthday import birthday_router
 from domain.message import message_router
@@ -20,8 +22,9 @@ app.add_middleware(
 app.include_router(birthday_router.router)
 app.include_router(message_router.router)
 app.include_router(user_router.router)
+app.mount("/assets", StaticFiles(directory="../frontend/dist/assets"))
 
 
-@app.get('/')
+@app.get("/")
 def index():
-    return "Hello, World!"
+    return FileResponse("../frontend/dist/index.html")

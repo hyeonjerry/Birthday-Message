@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Date
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Date, Text
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -10,7 +10,7 @@ class Birthday(Base):
     id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
     bdate = Column(Date, nullable=False)
-    introduce = Column(String, nullable=True)
+    introduce = Column(Text, nullable=True)
     created_at = Column(DateTime, nullable=False)
 
     user_id = Column(Integer, ForeignKey("user.id"), nullable=True)
@@ -22,7 +22,7 @@ class Message(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    message = Column(String, nullable=False)
+    message = Column(Text, nullable=False)
     created_at = Column(DateTime, nullable=False)
 
     birthday_id = Column(String, ForeignKey("birthday.id"))

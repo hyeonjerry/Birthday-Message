@@ -23,6 +23,7 @@ class Message(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     message = Column(String, nullable=False)
+    ip_addr = Column(String, nullable=False)
     created_at = Column(DateTime, nullable=False)
 
     birthday_id = Column(String, ForeignKey("birthday.id"))

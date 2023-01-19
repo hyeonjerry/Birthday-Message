@@ -47,7 +47,7 @@
 <Fullpage>
   <FullpageSection
     class="bgimg"
-    style="background-image: url(src/assets/bg1.jpg); background-position: center center;"
+    style="background-image: url(src/assets/bg1.jpg);"
   >
     <div class="container text-center">
       <div class="row">

@@ -23,6 +23,7 @@ app.include_router(birthday_router.router)
 app.include_router(message_router.router)
 app.include_router(user_router.router)
 app.mount("/assets", StaticFiles(directory="../frontend/dist/assets"))
+app.mount("/src/assets", StaticFiles(directory="../frontend/src/assets"))
 
 
 @app.get("/")

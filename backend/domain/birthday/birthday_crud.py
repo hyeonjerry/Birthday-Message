@@ -9,6 +9,7 @@ from domain.birthday.birthday_schema import BirthdayCreate, BirthdayUpdate
 
 def get_birthday(db: Session, birthday_id: str):
     birthday = db.query(Birthday).get(birthday_id)
+    birthday.messages.reverse()
     return birthday
 
 

@@ -9,7 +9,7 @@ from domain.user import user_router
 
 app = FastAPI()
 
-origins = ["*"]
+origins = ["https://birthday-message.r-e.kr"]
 
 app.add_middleware(
     CORSMiddleware,
